@@ -1,6 +1,7 @@
 import express from 'express';
 import { getProducts } from '../controllers/paginationController.js';
 import { getProductsWithIndexedOffset } from '../controllers/productoffsetIndexController.js';
+import { getProductsWithCursor } from '../controllers/productCursorPaginationController.js';
 
 const router = express.Router();
 
@@ -9,5 +10,7 @@ router.get('/products/pagination', getProducts);
 
 // Phase 2: Offset pagination with indexing
 router.get('/products/offset-indexed', getProductsWithIndexedOffset);
+
+router.get('/products/cursor-pagination', getProductsWithCursor);
 
 export default router;
