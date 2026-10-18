@@ -60,6 +60,10 @@ const productSchema = new mongoose.Schema(
   },
 );
 
+// Supports pagination queries that sort by creation time,
+// using _id as a tie-breaker when timestamps are equal.
+productSchema.index({ createdAt: 1, _id: 1 });
+
 const Product = mongoose.model('Product', productSchema);
 
 export default Product;
